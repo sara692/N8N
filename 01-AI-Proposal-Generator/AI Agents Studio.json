@@ -1,0 +1,195 @@
+{
+  "name": "AI Agents Studio",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "a1f93bc9-2b4a-4618-912a-3fce6fb3a83b",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -464,
+        -16
+      ],
+      "id": "9fd816b7-c368-418b-b5d4-f2ff5392f137",
+      "name": "Webhook",
+      "webhookId": "a1f93bc9-2b4a-4618-912a-3fce6fb3a83b"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"services\": [\n    {\n      \"name\": \"Social Media Management\",\n      \"price\": \"$800/mo\",\n      \"deliverables\": \"12 posts/month, content calendar, community management, monthly report\"\n    },\n    {\n      \"name\": \"Paid Ads / PPC\",\n      \"price\": \"$600/mo + 10% ad spend\",\n      \"deliverables\": \"Campaign setup, weekly optimization, conversion tracking, bi-weekly report\"\n    },\n    {\n      \"name\": \"SEO & Content\",\n      \"price\": \"$1,200/mo\",\n      \"deliverables\": \"4 blog posts/month, keyword research, technical audit, ranking report\"\n    },\n    {\n      \"name\": \"Email Marketing\",\n      \"price\": \"$500/mo\",\n      \"deliverables\": \"4 email campaigns/month, list segmentation, automation setup, open rate report\"\n    },\n    {\n      \"name\": \"Brand Strategy\",\n      \"price\": \"$1,500 one-time\",\n      \"deliverables\": \"Brand positioning, tone of voice guide, competitor analysis, visual identity brief\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -256,
+        -16
+      ],
+      "id": "81eed5a1-7134-4e72-b1c1-2ba87e482b80",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the raw text from Gemini\nconst inputData = $input.first().json;\n\nconst rawText = \n  inputData.text ||\n  inputData.content ||\n  inputData.message?.content ||\n  JSON.stringify(inputData);\n\n// Clean off any backticks if Gemini added them\nconst clean = rawText.replace(/```json|```/g, '').trim();\n\n// Parse proposal\nconst proposal = JSON.parse(clean);\n\n// Get body — handle both string and object\nconst rawBody = $('Webhook').item.json.body;\nconst body = typeof rawBody === 'string' ? JSON.parse(rawBody) : rawBody;\n\nreturn [{\n  json: {\n    status: \"complete\",\n    company_name: body.companyName,\n    contact_name: body.contactName,\n    proposal: proposal\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        288,
+        -16
+      ],
+      "id": "64a87229-c0c4-4b1a-ad6e-15aedafcdbd2",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $input.first().json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        480,
+        -16
+      ],
+      "id": "d1e6ba1f-62a3-49e6-9357-bd315abc8081",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Write a sales proposal for this prospect:\n\n- Company: {{ JSON.parse($('Webhook').item.json.body).companyName }}\n- Contact: {{ JSON.parse($('Webhook').item.json.body).contactName }}\n- Service wanted: {{ JSON.parse($('Webhook').item.json.body).service }}\n- Budget: {{ JSON.parse($('Webhook').item.json.body).budget }}\n- Pain points: {{ JSON.parse($('Webhook').item.json.body).painPoints }}\n- Website: {{ JSON.parse($('Webhook').item.json.body).companyWebsite }}\n\nOur available services:\n{{ $('Edit Fields').item.json.services.map(s => s.name + ': ' + s.price + ' — ' + s.deliverables).join('\\n') }}\n\nReturn ONLY this JSON structure:\n{\n  \"executive_summary\": \"\",\n  \"problem_statement\": \"\",\n  \"proposed_solution\": \"\",\n  \"scope_of_work\": \"\",\n  \"pricing_table\": [{\"name\": \"\", \"description\": \"\", \"price\": \"\"}],\n  \"timeline\": [{\"name\": \"\", \"duration\": \"\"}],\n  \"why_us\": \"\",\n  \"next_steps\": \"\"\n}",
+        "options": {
+          "systemMessage": "You are an expert sales copywriter for a digital marketing agency. \nWhen given prospect details, you write a professional, persuasive \nsales proposal. You respond ONLY with valid JSON — no extra text, \nno markdown, no backticks. Start directly with { and end with }."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -32,
+        -16
+      ],
+      "id": "fa958a50-9980-4afb-9234-1b5c61857de0",
+      "name": "Proposal generator"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        64,
+        240
+      ],
+      "id": "4e58f9b8-2bcc-4109-a200-9ce0a4e79f65",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -64,
+        160
+      ],
+      "id": "7aec8c99-73e9-4416-a3bc-8df4c5934467",
+      "name": "Gemini 2.5 Flash",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "ck1QQoYccHmCDX2D",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Proposal generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Proposal generator": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Proposal generator",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini 2.5 Flash": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Proposal generator",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "5216874b-4b5a-48bc-80ef-37707e98a735",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6c71eddf0d100ac6a50544094544b0ba3aa9f264d9f4d7eef327fecd5bc16020"
+  },
+  "id": "U96UFRY18XRgUyo2",
+  "tags": []
+}
