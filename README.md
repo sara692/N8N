@@ -1,163 +1,134 @@
-# 🤖 N8N
+# 🤖 AI Automation & n8n Agent Projects
 
-A collection of **production-ready AI automation workflows** built with n8n, focused on real-world business use cases like sales automation, WhatsApp agents, and AI-powered operations.
+![Timeline](https://img.shields.io/badge/Timeline-2026%20–%20Present-1E90FF?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Active%20Development-2ECC40?style=flat-square)
+![Architecture](https://img.shields.io/badge/Architecture-AI%20Agents%20%2B%20Automation-F47C3C?style=flat-square)
+![n8n](https://img.shields.io/badge/n8n-Workflow%20Automation-EA4B71?style=flat-square)
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=flat-square\&logo=docker\&logoColor=white)
+![Gemini](https://img.shields.io/badge/LLM-Google%20Gemini-4285F4?style=flat-square)
+![WhatsApp](https://img.shields.io/badge/Integration-WhatsApp%20API-25D366?style=flat-square\&logo=whatsapp\&logoColor=white)
+![Automation](https://img.shields.io/badge/Focus-Business%20Automation-8B5CF6?style=flat-square)
 
-Each project is modular, scalable, and designed to be deployed using Docker.
+> A collection of real-world **AI automation workflows and agent systems** built using n8n.
+> These projects focus on solving business problems through **AI Agents, workflow orchestration, and tool integration**.
+> Designed for practical use cases like **sales automation, communication agents, and productivity systems**.
 
 ---
 
-## 📂 Projects Included
+## 🗂️ Projects
 
-### 1. 🧾 AI Sales Proposal Generator
+| #  | Project                                                 | Description                                                                                                                                          | Stack                                              |
+| -- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| 01 | [AI Proposal Generator](./ai-proposal-generator/) | AI-powered system that generates personalized sales proposals from a simple form input, ready for PDF export or client delivery                      | n8n · Gemini · Webhooks · JavaScript               |
+| 02 | [WhatsApp AI Agent](./whatsapp-ai-agent/)               | Multi-modal AI assistant that handles text, voice, and images, and can perform actions like sending emails, scheduling events, and searching the web | n8n · Gemini · WhatsApp API · Tavily · Google APIs |
 
-Automates the creation of personalized sales proposals for marketing agencies.
+---
 
-**What it does:**
-
-* Takes client input via form
-* Uses AI to generate a full proposal
-* Returns structured output ready for PDF or email
-
-**Impact:**
-
-* ⏳ Reduces proposal writing time from 60–90 minutes
-* ⚡ Generates complete proposals in ~10 seconds
-
-**Workflow:**
+## 🏗️ Repository Structure
 
 ```
-Webhook → Set Fields → AI Agent → Code → Respond
-```
-
-📄 [View Full Documentation](./ai-proposal-generator/README.md)
-
----
-
-### 2. 💬 WhatsApp AI Agent (Multi-Tool Assistant)
-
-An intelligent WhatsApp assistant that can understand text, voice, and images, and perform real-world actions like sending emails, searching the web, and scheduling events.
-
----
-
-## 🧠 What This Agent Can Do
-
-* 💬 Answer user questions using AI
-* 🎤 Transcribe voice messages to text
-* 🖼️ Analyze images and extract meaning
-* 📅 Create Google Calendar events
-* 📧 Send emails via Gmail
-* 🌐 Search the web (Tavily)
-* 🧠 Maintain conversation memory
-
----
-
-## 🔄 Workflow Overview
-
-```
-WhatsApp Trigger
-   ↓
-Switch (Text / Audio / Image)
-   ↓
-Processing Layer:
-   - Text مباشرة
-   - Audio → Transcription → Text
-   - Image → Analysis → Text
-   ↓
-AI Agent (Gemini + Memory + Tools)
-   ↓
-WhatsApp Sender
+ai-automation-n8n/
+│
+├── README.md
+│
+├── ai-proposal-generator/
+│   ├── README.md
+│   └── workflow.json
+│
+├── whatsapp-ai-agent/
+│   ├── README.md
+│   └── workflow.json
+│
+└── docker-compose.yml
 ```
 
 ---
 
-## 🧩 Workflow Components
+## 🧠 Skills Demonstrated
 
-### 📥 Input Layer
+### 🤖 AI Agents & Automation
 
-* **WhatsApp Trigger**
-* **Switch Node**
-
-  * Routes messages based on type:
-
-    * Text
-    * Audio
-    * Image
+* Building agentic workflows using n8n
+* Tool-based AI agents (email, calendar, search)
+* Multi-step task execution from natural language
+* Real-world business automation (sales, communication)
 
 ---
 
-### 🎤 Audio Processing
+### 🔗 Workflow Orchestration
 
-* Download media
-* Convert to URL
-* Transcribe audio → text
-
----
-
-### 🖼️ Image Processing
-
-* Download image
-* Generate accessible URL
-* Analyze image using AI
-* Convert result → text
+* Event-driven workflows using webhooks
+* Conditional routing (text, audio, image)
+* Multi-node pipeline design
+* Error handling and fallback strategies
 
 ---
 
-### 🤖 AI Agent
+### 🧠 LLM Integration
 
-* **Model:** Gemini 2.5 Flash
-* **Memory:** Simple Memory (context-aware replies)
-
-**Handles:**
-
-* Natural conversations
-* Task execution
-* Tool selection
+* Prompt engineering for structured outputs (JSON)
+* Using Gemini for generation, reasoning, and task execution
+* Context-aware conversations with memory
+* Transforming unstructured input into actionable data
 
 ---
 
-### 🧰 Integrated Tools
+### 📡 Multi-Modal Processing
 
-#### 📅 Google Calendar
-
-* Create events directly from chat
-
-#### 🌐 Tavily Search
-
-* Real-time web search
-
-#### 📧 Gmail
-
-* Send emails on behalf of the user
+* Speech-to-text (audio transcription)
+* Image understanding and analysis
+* Text normalization for unified AI processing
 
 ---
 
-### 📤 Output Layer
+### 🔌 External Integrations
 
-* Sends final response back via WhatsApp
-
----
-
-## ⚙️ Tech Stack
-
-* **n8n (Self-hosted)**
-* **Docker**
-* **Google Gemini API**
-* **WhatsApp API**
-* **Tavily Search API**
-* **Google Services (Gmail, Calendar)**
+* WhatsApp API for real-time messaging
+* Google Calendar (event creation)
+* Gmail (automated email sending)
+* Tavily (real-time web search)
 
 ---
 
-## 🚀 Getting Started
+### 🐳 Deployment & Infrastructure
 
-### 1. Clone Repository
+* Docker-based self-hosting
+* Workflow scalability considerations
+* API-based system design
+* Production-ready automation setup
 
-```bash
-git clone https://github.com/your-username/ai-n8n-projects.git
-cd ai-n8n-projects
+---
+
+## 📈 Project Progression
+
+```
+01 AI Proposal Generator   → structured AI outputs, business automation
+        ↓
+02 WhatsApp AI Agent      → multi-modal AI, tool usage, real-time interaction
 ```
 
-### 2. Run with Docker
+Each project builds toward more advanced **agent autonomy, integration, and real-world usability**.
+
+---
+
+## 🛠️ Setup
+
+Each project contains its own setup instructions.
+
+### General Requirements
+
+* n8n (self-hosted or cloud)
+* Docker & Docker Compose
+* API keys:
+
+  * Google Gemini
+  * WhatsApp API
+  * Tavily
+  * Google OAuth (Gmail & Calendar)
+
+---
+
+### Run with Docker
 
 ```bash
 docker-compose up -d
@@ -165,61 +136,88 @@ docker-compose up -d
 
 ---
 
-### 3. Configure Credentials in n8n
+### Import Workflows
 
-* Gemini API
-* WhatsApp API
-* Google OAuth (Gmail & Calendar)
-* Tavily API
-
----
-
-### 4. Import Workflows
-
-* Import each project from its folder into n8n
+* Open n8n UI
+* Import workflow JSON files from each project folder
+* Configure credentials
 
 ---
 
-## 📁 Project Structure
+## 🛠️ Skills & Technologies
 
-```
-ai-n8n-projects/
-│
-├── ai-proposal-generator/
-│   ├── workflow.json
-│   └── README.md
-│
-├── whatsapp-ai-agent/
-│   ├── workflow.json
-│   └── README.md
-│
-└── docker-compose.yml
-```
+### ⚙️ Automation & Orchestration
+
+![n8n](https://img.shields.io/badge/n8n-Workflow%20Automation-EA4B71?style=flat-square)
+![Webhooks](https://img.shields.io/badge/Trigger-Webhooks-6366F1?style=flat-square)
+![Automation](https://img.shields.io/badge/System-Automation%20Flows-6366F1?style=flat-square)
 
 ---
 
-## 💡 Future Projects (Planned)
+### 🤖 AI & LLMs
 
-* CRM AI Assistant
-* Automated Lead Qualification System
-* AI Customer Support Bot
-* Data Analysis Agent
-
----
-
-## 🤝 Contributing
-
-Feel free to fork, improve, and submit PRs.
+![Gemini](https://img.shields.io/badge/LLM-Google%20Gemini-4285F4?style=flat-square)
+![Prompt Engineering](https://img.shields.io/badge/Skill-Prompt%20Engineering-8B5CF6?style=flat-square)
+![AI Agents](https://img.shields.io/badge/System-AI%20Agents-DC2626?style=flat-square)
 
 ---
 
-## 📄 License
+### 📡 Integrations & APIs
 
-MIT License
+![WhatsApp](https://img.shields.io/badge/API-WhatsApp-25D366?style=flat-square)
+![Gmail](https://img.shields.io/badge/API-Gmail-EA4335?style=flat-square)
+![Google Calendar](https://img.shields.io/badge/API-Google%20Calendar-4285F4?style=flat-square)
+![Tavily](https://img.shields.io/badge/API-Tavily%20Search-0F766E?style=flat-square)
 
 ---
 
-## ✨ Author
+### 🧠 Multi-Modal AI
 
-### Name : sara Ibarhim Mohamed Omran
-### Contact : saraomarn433@gamil.com
+![Speech to Text](https://img.shields.io/badge/AI-Speech%20to%20Text-10B981?style=flat-square)
+![Image Analysis](https://img.shields.io/badge/AI-Image%20Understanding-F59E0B?style=flat-square)
+![Text Processing](https://img.shields.io/badge/AI-Text%20Processing-3B82F6?style=flat-square)
+
+---
+
+### 🐳 Infrastructure
+
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=flat-square\&logo=docker\&logoColor=white)
+![Self Hosted](https://img.shields.io/badge/Deployment-Self--Hosted-4B5563?style=flat-square)
+
+---
+
+## ⚠️ Common Issues
+
+### 🔴 Workflow Hanging
+
+* Check Docker logs
+* Ensure proper webhook response handling
+* Add timeouts to API calls
+
+### 🟡 No Response from Agent
+
+* Verify WhatsApp API credentials
+* Ensure final node returns output
+
+### 🔵 Slow Execution
+
+* Optimize AI prompts
+* Reduce unnecessary tool calls
+
+---
+
+## 🚀 Future Work
+
+* AI CRM Assistant
+* Lead Qualification Agent
+* Customer Support Automation Bot
+* Advanced Memory & Context Systems
+
+---
+
+## 📬 Contact
+
+**Sara Ibrahim**
+📧 [saraomran433@gmail.com](mailto:saraomran433@gmail.com)
+
+---
