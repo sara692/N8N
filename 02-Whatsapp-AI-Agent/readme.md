@@ -267,9 +267,7 @@ Try sending these messages:
 
 ---
 
-## 👤 Project By
+## 👤 Auther
+**Sara Ibrahim**
 
-**AI Agents Studio**  
-Building real-world AI automation systems with n8n  
-
-📧 saraomran433@gmail.com
+📧 **saraomran433@gmail.com**
