@@ -10,7 +10,7 @@
 
 ---
 
-## 🖥️ App Screenshots
+## 🖥️ App Screenshots https://ai-agents-agency.lovable.app/
 
 | Dashboard | 
 |----------------------------|
@@ -297,18 +297,6 @@ Copy the `https://` URL and use it as your webhook base URL.
 | Timeline | `timeline` (array) |
 | Why Us | `why_us` |
 | Next Steps | `next_steps` |
-
----
-
-## 🐛 Known Issues & Fixes
-
-| Issue | Cause | Fix |
-|-------|-------|-----|
-| `[undefined]` in prompt | Body arrives as string | Use `JSON.parse($('Webhook').item.json.body).fieldName` |
-| `[object Object]` for services | Wrong serialization | Use `.map(s => s.name + ': ' + s.price).join('\n')` |
-| Proposal sections not showing | Nested in `proposal.output` | Parse with `JSON.parse(data.proposal.output)` on front-end |
-| Data lost on refresh | React state only | Use `localStorage` or Supabase to persist data |
-| Unused Respond to Webhook error | Wrong Response Mode | Set Webhook node Response Mode to **Using Respond to Webhook Node** |
 
 ---
 
