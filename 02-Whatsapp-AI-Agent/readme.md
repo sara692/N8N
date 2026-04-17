@@ -5,7 +5,7 @@
 ---
 
 ## 📸 Workflow Screenshot
-| <img width="1693" height="667" alt="Workflow" src="https://github.com/user-attachments/assets/67ee6e1a-36c3-44af-97e2-c99967290610" /> |
+ <img width="1693" height="667" alt="Workflow" src="https://github.com/user-attachments/assets/67ee6e1a-36c3-44af-97e2-c99967290610" /> 
 
 ---
 
