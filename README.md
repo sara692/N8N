@@ -20,7 +20,7 @@
 | #  | Project                                                 | Description                                                                                                                                          | Stack                                              |
 | -- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
 | 01 | [AI Proposal Generator](./01-AI-Proposal-Generator/) | AI-powered system that generates personalized sales proposals from a simple form input, ready for PDF export or client delivery                      | n8n · Gemini · Webhooks · JavaScript               |
-| 02 | [WhatsApp AI Agent](./Whatsapp-Ai-Agent/)               | Multi-modal AI assistant that handles text, voice, and images, and can perform actions like sending emails, scheduling events, and searching the web | n8n · Gemini · WhatsApp API · Tavily · Google APIs |
+| 02 | [WhatsApp AI Agent](./Whatsapp-AI-Agent/)               | Multi-modal AI assistant that handles text, voice, and images, and can perform actions like sending emails, scheduling events, and searching the web | n8n · Gemini · WhatsApp API · Tavily · Google APIs |
 
 ---
 
