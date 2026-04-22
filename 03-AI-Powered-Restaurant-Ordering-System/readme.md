@@ -8,11 +8,7 @@ A modern restaurant website with a fully automated order processing pipeline bui
 
 Customers visit the website, browse the menu, and place orders. The order is sent via webhook to an n8n workflow where an AI agent extracts and normalizes the data, then saves it to Google Sheets. Customers can also track their order status in real time through the site.
 
-```
-Customer → Website → Webhook → n8n Agent → JS Normalizer → Google Sheets
-                                    ↕
-                              Chat / Track
-```
+<img width="1566" height="653" alt="image" src="https://github.com/user-attachments/assets/a4144f16-442f-404d-801f-c2251149d870" />
 
 ---
 
@@ -135,6 +131,23 @@ Paste the full script from `js-normalizer.js` into the Code node.
 - Operation: **Append Row**
 - Map each column to the normalized fields above
 - Sheet columns should match the output schema exactly
+
+## 🖼️ Project Images
+
+<img width="1905" height="909" alt="Capture" src="https://github.com/user-attachments/assets/2c964481-8cb0-4702-8372-0b5d7d919f56" />|
+
+<img width="1906" height="906" alt="Capture2" src="https://github.com/user-attachments/assets/90e721b7-2127-4c51-81fc-50dce2ef02d4" />|
+
+<img width="1906" height="901" alt="Capture3" src="https://github.com/user-attachments/assets/5c1095e5-44a9-4a8c-bf69-9c4141fa4020" />|
+
+<img width="1898" height="905" alt="Capture4" src="https://github.com/user-attachments/assets/902dad5c-e445-4e77-8bfe-3adc02aec8e4" />|
+
+<img width="1890" height="897" alt="Capture5" src="https://github.com/user-attachments/assets/5173ce16-e3cb-4da0-a13e-24cdbd51ab49" />|
+
+<img width="525" height="900" alt="Capture6" src="https://github.com/user-attachments/assets/2beb5dee-2415-49fb-b6ab-b4f4d1f75ab3" />|
+
+<img width="1831" height="523" alt="Capture7" src="https://github.com/user-attachments/assets/d68e72ae-b2b8-4eac-8133-f847a236136d" />|
+
 
 ---
 
