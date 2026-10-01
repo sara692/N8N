@@ -24,7 +24,7 @@
 | -- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
 | 01 | [AI Proposal Generator](./01-AI-Proposal-Generator/)                         | AI-powered system that generates personalized sales proposals from a simple form and produces a client-ready PDF.                                 | n8n · Gemini · Webhooks · JavaScript                 |
 | 02 | [WhatsApp AI Agent](./02-Whatsapp-AI-Agent/)                                 | Multi-modal AI assistant that handles text, voice, and images while performing actions such as sending emails, scheduling events, and web search. | n8n · Gemini · WhatsApp API · Tavily · Google APIs   |
-| 03 | [LUMIÈRE — AI Restaurant Ordering System](./03-Lumiere-Restaurant-Ordering/) | AI-powered restaurant website with automated order processing, chatbot interaction, order tracking, and Google Sheets integration.                | n8n · AI Agent · Google Sheets · HTML · Tailwind CSS |
+| 03 | [LUMIÈRE — AI Restaurant Ordering System](./03-AI-Powered-Restaurant-Ordering-System/) | AI-powered restaurant website with automated order processing, chatbot interaction, order tracking, and Google Sheets integration.                | n8n · AI Agent · Google Sheets · HTML · Tailwind CSS |
 
 ---
 
