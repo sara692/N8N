@@ -373,8 +373,22 @@ Planned additions include:
 
 ---
 
-# 📬 Contact
+# 📄 License
+This portfolio is available for educational and demonstration purposes. Individual projects may have specific licenses based on data sources and requirements. Please check individual project directories for specific licensing information.
 
-**Sara Ibrahim**
+# 👨‍💻 Author
+**Sara Ibrahim**  
+*Data Scientist | Machine Learning Engineer*
 
-📧 **[saraomran433@gmail.com](mailto:saraomran433@gmail.com)**
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/sara-ibrahim-omran)  
+[![Email](https://img.shields.io/badge/Email-Contact%20Me-red?style=flat&logo=gmail)](mailto:Saraomran433@gmail.com)
+
+---
+
+## 🌟 **Let's Connect!**
+I'm passionate about solving real-world problems with data and machine learning. Feel free to reach out for:
+- 💼 Job opportunities and collaborations
+- 📚 Technical discussions and knowledge sharing
+- 🚀 Project ideas and innovative solutions
+
+**⭐ If you find any project interesting or helpful, please give it a star!**
